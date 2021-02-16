@@ -90,6 +90,8 @@
   <ItemGroup>
     <Content Include="FichierXML\DataAvis.xml" />
     <Content Include="Global.asax" />
+    <Content Include="ressources\GroupeHN.png" />
+    <Content Include="ressources\Index.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -99,12 +101,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Avis.cs" />
+    <Compile Include="Models\FormulaireModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\Formulaire.cshtml" />
+    <Content Include="Views\Shared\ValidationFormulaire.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -114,8 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ressources\" />
-    <Folder Include="Views\Shared\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
