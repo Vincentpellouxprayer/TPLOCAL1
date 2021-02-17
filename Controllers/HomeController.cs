@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using TPLOCAL1.Models;
@@ -36,20 +37,21 @@ namespace TPLOCAL1.Controllers
             }
         }
 
-
         //méthode pour envoyer les données du formulaire vers la page de validation
         [HttpPost]
         public ActionResult ValidationFormulaire( FormulaireModel formulaire)
         {
             if (ModelState.IsValid)
             {
-                return RedirectToRoute("ValidationFotmulaire");
+                return Index("ValidationFormulaire");
             }
+            //return Index("ValidationFormulaire");
             return View(formulaire);
+            //return View(formulaire);
             //reste à faire : tester de si les champs du modele sont bien remplis
             //s'ils ne sont pas bien remplis, afficher une erreur et rester sur la page formulaire
             //sinon, appeler la page ValidationFormulaire avec les données remplies par l'utilisateur
 
-            }
+        }
     }
 }
