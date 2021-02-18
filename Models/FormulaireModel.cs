@@ -4,26 +4,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TPLOCAL1.Models
 {
-    public class ListeFormulaire
-    {
-        private static int id = 0;
-        private List<FormulaireModel> listFormulaire;
-
-        public ListeFormulaire()
-        {
-            listFormulaire = new List<FormulaireModel>();
-        }
-
-        public void AddFormulaire(FormulaireModel formulaire)
-        {
-            formulaire.Id = id + 1;
-            listFormulaire.Add(formulaire);
-        }
-        public FormulaireModel GetFormulaire(int id)
-        {
-            return listFormulaire[id - 1];
-        }
-    }
     public class FormulaireModel
     {
         public int Id { get; set; }
@@ -31,13 +11,14 @@ namespace TPLOCAL1.Models
         public string Nom { get; set; }
         [Required(ErrorMessage = "Le prénom est requis")]
         public string Prenom { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Le sexe est requis")]
         public string Sexe { get; set; }
         [Required(ErrorMessage = "L'adresse est requise")]
         public string Adresse { get; set; }
 
         [Required(ErrorMessage = "Le code postal est requis")]
         [RegularExpression(@"[0-9]{5}", ErrorMessage = "Entrer un code postal valide")]
+        [DataType(DataType.PostalCode)]
         public int CodePostal { get; set; }
         [Required(ErrorMessage = "La ville est requise")]
         public string Ville { get; set; }
@@ -46,9 +27,11 @@ namespace TPLOCAL1.Models
         [RegularExpression(@"^([\w]+)@([\w]+)\.([\w]+)$", ErrorMessage ="Entrer une adresse email valide")]
         public string AdresseMail { get; set; }
 
+        [Range(typeof(DateTime), "01/01/0001", "01/01/2021")]
         [Required(ErrorMessage = "La date est requise")]
-        [DataType(DataType.Date)]
-        public String DateDebutFormation { get; set; }
+        [DisplayFormat(DataFormatString = "{0:d}")]
+        //[DataType(DataType.Date)]
+        public DateTime DateDebutFormation { get; set; }
 
         [Required(ErrorMessage = "Le type de formation est requis")]
         public string TypeFormation { get; set; }

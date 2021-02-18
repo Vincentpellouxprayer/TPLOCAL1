@@ -1,0 +1,52 @@
+﻿@model TPLOCAL1.Models.ListeAvis
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Liste des avis</title>
+    <link rel="stylesheet" href="~/ressources/Index.css" />
+</head>
+<body>
+    <header>
+        <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <h1>Liste des avis</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/Home/Index">Accueil</a></li>
+            <li><a href="/Home/Index/Formulaire">Remplir le formulaire</a></li>
+        </ul>
+    </nav>
+    <section>
+        <table>
+            <tr>
+                <th colspan="3" id="tt">Liste</th>
+            </tr>
+            <tr>
+                <td>Nom</td>
+                <td>Prénom</td>
+                <td>Avis donné</td>
+            </tr>
+            @{ List<TPLOCAL1.Models.Avis> list;
+                list = new List<TPLOCAL1.Models.Avis>();
+                list = Model.GetAvis("/FichierXML/DataAvis");
+             }
+            @foreach(TPLOCAL1.Models.Avis item in list)
+            {
+                <tr>
+                    <td>
+                        @item.Nom
+                    </td>
+                    <td>
+                        @item.Prenom
+                    </td>
+                    <td>
+                        @item.AvisDonne
+                    </td>
+                </tr>
+                }
+            </table>
+    </section>
+</body>
+</html>

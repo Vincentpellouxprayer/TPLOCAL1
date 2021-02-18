@@ -43,10 +43,9 @@ namespace TPLOCAL1.Controllers
         {
             if (ModelState.IsValid)
             {
-                return Index("ValidationFormulaire");
+                return View(formulaire);
             }
-            //return Index("ValidationFormulaire");
-            return View(formulaire);
+            return Index("Formulaire");
             //return View(formulaire);
             //reste à faire : tester de si les champs du modele sont bien remplis
             //s'ils ne sont pas bien remplis, afficher une erreur et rester sur la page formulaire

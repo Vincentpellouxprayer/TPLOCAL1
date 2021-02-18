@@ -29,10 +29,8 @@
                     <td>Nom</td>
                     <td>
                         <!--<form>-->
-                        <div>
                             <input type="text" id="Nom" name="Nom" class="form-control" />
-                            <span asp-validation-for="Nom" class="text-danger"></span>
-                        </div>
+                            @Html.ValidationMessageFor(model => model.Nom)
                         <!--</form>-->
                     </td>
                 </tr>
@@ -40,71 +38,50 @@
                     <td>Prénom</td>
                     <td>
                         <!--<form>-->
-                        <div class="form-group">
                             <input type="text" id="Prenom" name="Prenom">
-                            <span asp-validation-for="Prenom" class="text-danger"></span>
-                        </div>
+                            @Html.ValidationMessageFor(model => model.Prenom)
                         <!--</form>-->
                     </td>
                 </tr>
                 <tr>
                     <td>Sexe</td>
-                    <!--Liste déroulante sur les genres-->
+                    <!--Liste déroulante pour le sexe-->
                     <td>
-                        <div class="/Models/FormulaireModel">
-                            <!--<form>-->
-                            <select id="genre" name="genre">
-                                <option value="Sélectionner un sexe" selected>Sélectionner un sexe</option>
-                                <option value="Homme">Homme</option>
-                                <option value="Femme">Femme</option>
-                                <option value="Autre">Autre</option>
-                            </select>
-                        </div>
-                        <!--</form>-->
+                        <select name="Sexe">
+                            <option value="">Sélectionner un sexe</option>
+                            <option value="Homme">Homme</option>
+                            <option value="Femme">Femme</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                        @Html.ValidationMessageFor(model => model.Sexe)
                     </td>
                 </tr>
                 <tr>
                     <td>Adresse</td>
                     <td>
-                        <!--<form>-->
-                        <div class="/Models/FormulaireModel">
-                            <input asp-for="Adresse" class="form-control" />
-                            <span asp-validation-for="Adresse" class="text-danger"></span>
-                        </div>
-                        <!--</form>-->
+                        <input type="text" name="Adresse">
+                        @Html.ValidationMessageFor(model => model.Adresse)
                     </td>
                 </tr>
                 <tr>
                     <td>Code postal</td>
                     <td>
-                        <!--<form>-->
-                        <div class="/Models/FormulaireModel">
-                            <input type="number" id="CodePostal" name="CodePostal">
-                            <span asp-validation-for="CodePostal" class="text-danger"></span>
-                        </div>
-                        <!--</form>-->
+                        <input type="number" name="CodePostal">
+                        @Html.ValidationMessageFor(model => model.CodePostal)
                     </td>
                 </tr>
                 <tr>
                     <td>Ville</td>
                     <td>
-                        <div class="/Models/FormulaireModel">
-                            <!--<form>-->
-                            <input type="text" id="Ville" name="Ville">
-                        </div>
-                        <!--</form>-->
+                        <input type="text" name="Ville">
+                        @Html.ValidationMessageFor(model => model.Ville)
                     </td>
                 </tr>
                 <tr>
                     <td>Adresse mail</td>
                     <td>
-                        <!--<form>-->
-                        <div class="/Models/FormulaireModel">
-                            <label asp-for="AdresseMail" class="control-label"></label>
-                            <input asp-for="AdresseMail" class="form-control" />
-                            <span asp-validation-for="AdresseMail" class="text-danger"></span>
-                        </div>
-                        <!--</form>-->
+                        <input type="text" name="AdresseMail">
+                        @Html.ValidationMessageFor(model => model.AdresseMail)
                     </td>
                 </tr>
             </table>
@@ -116,25 +93,21 @@
                 <tr>
                     <td>Date début formation</td>
                     <td>
-                        <!--<form>-->
-                        <div class="/Models/FormulaireModel">
-                            <input type="date" max="01-01-2021">
-                            <!--</form>-->
-                        </div>
+                        <input type="date" name="DateDebutFormation" max="01/01/2021">
+                        @Html.ValidationMessageFor(model => model.DateDebutFormation)
                     </td>
                 </tr>
                 <tr>
                     <td>Type de formation</td>
                     <td>
-                        <!--Liste déroulante sur les formation-->
-                        <!--<form>-->
-                        <select id="formation" name="formation">
-                            <option value="Sélectionner une formation" selected>Sélectionner une formation</option>
+                        <!--Liste déroulante pour la formation-->
+                        <select name="TypeFormation">
+                            <option value="">Sélectionner une formation</option>
                             <option value="Formation Cobol">Formation Cobol</option>
                             <option value="Formation objet">Formation objet</option>
                             <option value="Formation double compétence">Formation double compétence</option>
                         </select>
-                        <!--</form>-->
+                        @Html.ValidationMessageFor(model => model.TypeFormation)
                     </td>
                 </tr>
             </table>
@@ -146,34 +119,22 @@
                 <tr>
                     <td>Formation Cobol</td>
                     <td>
-                        <!--<form>-->
-                        <div class="form-group">
-                            <label asp-for="FormationCobol" class="control-label"></label>
-                            <input asp-for="FormationCobol" class="form-control" />
-                            <span asp-validation-for="FormationCobol" class="text-danger"></span>
-                        </div>
-                        <!--</form>-->
+                        <input type="text" name="FormationCobol">
+                        @Html.ValidationMessageFor(model => model.FormationCobol)
                     </td>
                 </tr>
                 <tr>
                     <td>Formation Objet</td>
                     <td>
-                        <!--<form>-->
-                        <div class="form-group">
-                            <label asp-for="FormationObjet" class="control-label"></label>
-                            <input asp-for="FormationObjet" class="form-control" />
-                            <span asp-validation-for="FormationObjet" class="text-danger"></span>
-                        </div>
-                        <!--</form>-->
+                        <input type="text" name="FormationObjet">
+                        @Html.ValidationMessageFor(model => model.FormationObjet)
                     </td>
                 </tr>
             </table>
-            <div class="form-group">
                 <!--appel à la méthode ValidationFormulaire du HomeController-->
                 <!--<form action="/Home/ValidationFormulaire" method="post">-->
                 <input type="submit" value="Valider">
                 <!--</form>-->
-            </div>
         </section>
     </form>
 </body>

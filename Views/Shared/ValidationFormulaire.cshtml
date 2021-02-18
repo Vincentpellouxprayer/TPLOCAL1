@@ -1,7 +1,4 @@
 ﻿@model TPLOCAL1.Models.FormulaireModel
-@{ 
-    ViewData["Title"] = "ValidationFormulaire";
-}
 
 <!DOCTYPE html>
 
@@ -80,35 +77,36 @@
                 <tr>
                     <td>Date début formation</td>
                     <td>
-                        @Model.DateDebutFormation
+                        @Html.DisplayFor(model => model.DateDebutFormation)
+                        <!--Model.DateDebutFormation-->
                     </td>
-                </tr>
-                <tr>
-                    <td>Type de formation</td>
-                    <td>
-                        @Model.TypeFormation
-                    </td>
-                </tr>
-            </table>
-            <br>
-            <table>
-                <tr>
-                    <th colspan="2" id="tt">Avis sur la formation</th>
-                </tr>
-                <tr>
-                    <td>Formation Cobol</td>
-                    <td>
-                        @Model.FormationCobol
-                    </td>
-                </tr>
-                <tr>
-                    <td>Formation Objet</td>
-                    <td>
-                        @Model.FormationObjet
-                    </td>
-                </tr>
-            </table>
-        </section>
-    </div>
-</body>
-</html>
+                    </tr>
+                    <tr>
+                        <td>Type de formation</td>
+                        <td>
+                            @Model.TypeFormation
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                    <tr>
+                        <th colspan="2" id="tt">Avis sur la formation</th>
+                    </tr>
+                    <tr>
+                        <td>Formation Cobol</td>
+                        <td>
+                            @Model.FormationCobol
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Formation Objet</td>
+                        <td>
+                            @Model.FormationObjet
+                        </td>
+                    </tr>
+                </table>
+            </section>
+        </div>
+    </body>
+    </html>
