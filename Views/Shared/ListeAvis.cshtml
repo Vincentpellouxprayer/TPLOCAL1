@@ -28,9 +28,11 @@
                 <td>Prénom</td>
                 <td>Avis donné</td>
             </tr>
-            @{ List<TPLOCAL1.Models.Avis> list;
-                list = new List<TPLOCAL1.Models.Avis>();
-                list = Model.GetAvis("/FichierXML/DataAvis");
+            @{ 
+                TPLOCAL1.Models.ListeAvis list1 = new TPLOCAL1.Models.ListeAvis();
+                List<TPLOCAL1.Models.Avis> list;
+                string chemin = AppDomain.CurrentDomain.BaseDirectory;
+                list = list1.GetAvis(chemin + "/FichierXML/DataAvis.xml");
              }
             @foreach(TPLOCAL1.Models.Avis item in list)
             {
@@ -41,12 +43,17 @@
                     <td>
                         @item.Prenom
                     </td>
-                    <td>
-                        @item.AvisDonne
-                    </td>
+                    @if (item.AvisDonne == "O")
+                    {
+                        <td style="background-color:green">Oui</td>
+                    }
+                    @if (item.AvisDonne != "O")
+                    {
+                        <td style="background-color:red">Non</td>
+                    }
                 </tr>
-                }
-            </table>
+             }
+        </table>
     </section>
 </body>
 </html>
