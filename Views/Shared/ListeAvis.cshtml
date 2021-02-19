@@ -4,45 +4,59 @@
 
 <html>
 <head>
+    <!--meta information de la page Liste des avis-->
     <title>Liste des avis</title>
+    <!--lien vers la feuille CSS Index-->
     <link rel="stylesheet" href="~/ressources/Index.css" />
 </head>
 <body>
     <header>
+        <!--Récupération de l'image HN dans le dossier ressources-->
         <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <!--Titre de la page Liste des avis-->
         <h1>Liste des avis</h1>
     </header>
     <nav>
         <ul>
+            <!--Liens vers la page d'acceuil-->
             <li><a href="/Home/Index">Accueil</a></li>
+            <!--Liens vers la page Formulaire-->
             <li><a href="/Home/Index/Formulaire">Remplir le formulaire</a></li>
         </ul>
     </nav>
     <section>
+        <!--Création du tableau Liste-->
         <table>
             <tr>
+                <!--Titre du tableau sur 3 colonnes-->
                 <th colspan="3" id="tt">Liste</th>
             </tr>
+            <!--Titre des colonnes-->
             <tr>
                 <td>Nom</td>
                 <td>Prénom</td>
                 <td>Avis donné</td>
             </tr>
-            @{ 
+            <!--Récupération de la liste des avis donnés grâce à la au model ListeAvis-->
+            @{
                 TPLOCAL1.Models.ListeAvis list1 = new TPLOCAL1.Models.ListeAvis();
                 List<TPLOCAL1.Models.Avis> list;
                 string chemin = AppDomain.CurrentDomain.BaseDirectory;
                 list = list1.GetAvis(chemin + "/FichierXML/DataAvis.xml");
-             }
-            @foreach(TPLOCAL1.Models.Avis item in list)
+            }
+            <!--Parcours de la liste pour afficher les informations contenus dans la liste-->
+            @foreach (TPLOCAL1.Models.Avis item in list)
             {
                 <tr>
                     <td>
+                        <!--Récupération du nom-->
                         @item.Nom
                     </td>
                     <td>
+                        <!--Récupération du prénom-->
                         @item.Prenom
                     </td>
+                    <!--Récupération de l'information sur l'avis donné et affichage selon l'information reçu-->
                     @if (item.AvisDonne == "O")
                     {
                         <td style="background-color:green">Oui</td>
@@ -52,7 +66,7 @@
                         <td style="background-color:red">Non</td>
                     }
                 </tr>
-             }
+            }
         </table>
     </section>
 </body>

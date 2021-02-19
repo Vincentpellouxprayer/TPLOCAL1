@@ -4,43 +4,51 @@
 
 <html>
 <head>
+    <!--meta information de la page de formulaire-->
     <title>Formulaire</title>
+    <!--lien vers la feuille CSS Index-->
     <link rel="stylesheet" href="~/ressources/Index.css" />
 </head>
 <body>
     <header>
+        <!--Récupération de l'image HN dans le dossier ressources-->
         <img src="~/ressources/GroupeHN.png" class="image" alt="GroupeHN" />
+        <!--Titre de la page formulaire-->
         <h1>Formulaire TP HN avis</h1>
     </header>
     <nav>
         <ul>
+            <!--Liens vers la page d'acceuil-->
             <li><a href="/Home/Index">Accueil</a></li>
+            <!--Liens vers la page Liste avis-->
             <li><a href="/Home/Index/ListeAvis">Liste avis</a></li>
         </ul>
     </nav>
+    <!--appel à la méthode ValidationFormulaire du HomeController-->
     <form action="/Home/ValidationFormulaire" method="post">
         <section>
             <!--Création du tableau Informations personnelles-->
             <table>
                 <tr>
+                    <!--Titre du tableau sur 2 colonnes-->
                     <th colspan="2" id="tt">Informations personnelles</th>
                 </tr>
                 <tr>
+                    <!--Formulaire sur le nom-->
                     <td>Nom</td>
                     <td>
-                        <!--<form>-->
-                            <input type="text" id="Nom" name="Nom" class="form-control" />
-                            @Html.ValidationMessageFor(model => model.Nom)
-                        <!--</form>-->
+                        <input type="text" id="Nom" name="Nom" class="form-control" />
+                        <!--vérification de la conformité du nom avec le model-->
+                        @Html.ValidationMessageFor(model => model.Nom)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur le prénom-->
                     <td>Prénom</td>
                     <td>
-                        <!--<form>-->
-                            <input type="text" id="Prenom" name="Prenom">
-                            @Html.ValidationMessageFor(model => model.Prenom)
-                        <!--</form>-->
+                        <input type="text" id="Prenom" name="Prenom">
+                        <!--vérification de la conformité du prénom avec le model-->
+                        @Html.ValidationMessageFor(model => model.Prenom)
                     </td>
                 </tr>
                 <tr>
@@ -53,34 +61,43 @@
                             <option value="Femme">Femme</option>
                             <option value="Autre">Autre</option>
                         </select>
+                        <!--vérification de la conformité du sexe avec le model-->
                         @Html.ValidationMessageFor(model => model.Sexe)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur l'adresse-->
                     <td>Adresse</td>
                     <td>
                         <input type="text" name="Adresse">
+                        <!--vérification de la conformité de l'adresse avec le model-->
                         @Html.ValidationMessageFor(model => model.Adresse)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur le code postal-->
                     <td>Code postal</td>
                     <td>
                         <input type="number" name="CodePostal">
+                        <!--vérification de la conformité du code postal avec le model-->
                         @Html.ValidationMessageFor(model => model.CodePostal)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur la ville-->
                     <td>Ville</td>
                     <td>
                         <input type="text" name="Ville">
+                        <!--vérification de la conformité de la ville avec le model-->
                         @Html.ValidationMessageFor(model => model.Ville)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur l'adresse mail-->
                     <td>Adresse mail</td>
                     <td>
                         <input type="text" name="AdresseMail">
+                        <!--vérification de la conformité de l'adresse mail avec le model-->
                         @Html.ValidationMessageFor(model => model.AdresseMail)
                     </td>
                 </tr>
@@ -88,12 +105,15 @@
             <!--Création du tableau Informations formation suivie-->
             <table>
                 <tr>
+                    <!--Titre du tableau sur 2 colonnes-->
                     <th colspan="2" id="tt">Informations formation suivie</th>
                 </tr>
                 <tr>
+                    <!--Formulaire sur la date de début de formation-->
                     <td>Date début formation</td>
                     <td>
                         <input type="date" name="DateDebutFormation" max="01/01/2021">
+                        <!--vérification de la conformité de la date de début de formation avec le model-->
                         @Html.ValidationMessageFor(model => model.DateDebutFormation)
                     </td>
                 </tr>
@@ -107,6 +127,7 @@
                             <option value="Formation objet">Formation objet</option>
                             <option value="Formation double compétence">Formation double compétence</option>
                         </select>
+                        <!--vérification de la conformité du type de formation avec le model-->
                         @Html.ValidationMessageFor(model => model.TypeFormation)
                     </td>
                 </tr>
@@ -114,27 +135,30 @@
             <!--Création du tableau Avis sur la formation-->
             <table>
                 <tr>
+                    <!--Titre du tableau sur 2 colonnes-->
                     <th colspan="2" id="tt">Avis sur la formation</th>
                 </tr>
                 <tr>
+                    <!--Formulaire sur l'avis de la formation Cobol-->
                     <td>Formation Cobol</td>
                     <td>
                         <input type="text" name="FormationCobol">
+                        <!--vérification de la conformité de l'avis sur la formation Cobol avec le model-->
                         @Html.ValidationMessageFor(model => model.FormationCobol)
                     </td>
                 </tr>
                 <tr>
+                    <!--Formulaire sur l'avis de la formation Objet-->
                     <td>Formation Objet</td>
                     <td>
                         <input type="text" name="FormationObjet">
+                        <!--vérification de la conformité de l'avis sur la formation Objet avec le model-->
                         @Html.ValidationMessageFor(model => model.FormationObjet)
                     </td>
                 </tr>
             </table>
-                <!--appel à la méthode ValidationFormulaire du HomeController-->
-                <!--<form action="/Home/ValidationFormulaire" method="post">-->
-                <input type="submit" value="Valider">
-                <!--</form>-->
+            <!--Bouton de validation du formulaire-->
+            <input type="submit" value="Valider">
         </section>
     </form>
 </body>
